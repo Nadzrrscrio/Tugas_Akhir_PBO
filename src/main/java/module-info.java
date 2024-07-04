@@ -10,6 +10,8 @@ module org.example.tugasakhir_pbo {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.mail;
+    requires java.activation;
 
     opens org.example.tugasakhir_pbo to javafx.fxml;
     exports org.example.tugasakhir_pbo;

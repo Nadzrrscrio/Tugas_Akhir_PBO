@@ -228,6 +228,7 @@ public class Admin {
         TextField programField = new TextField();
         programField.setMaxWidth(300);
 
+
         Button addButton = new Button("Tambah siswa");
         Button backButton = new Button("Keluar");
         Label confirmationLabel = new Label();
@@ -324,8 +325,26 @@ public class Admin {
     public Book getBookById(String id) {
         for (Book book : bookList) {
             if (book.getId().equals(id)) {
-                return book;
-            }
+                SendEmail sendEmail = new SendEmail();
+                try {
+                    String recipientEmail = "secarionadzar@gmail.com"; //email penerima
+
+                    String subject = "Notifikasi peminjaman!";
+                    String body = "Kabar baik! Peminjaman buku telah berhasil\n"
+                            + "Terimakasih telah mengunjungi iBook\n"
+                            + "Berikut informasi tentang buku yang dipinjam :\n\n"
+                            + "Book ID    : " + book.getId() + "\n"
+                            + "Title      : " + book.getTitle() + "\n"
+                            + "Duration of borrowing : " + "7" + " days\n\n"
+                            + sendEmail.dateinfo_now();
+                    sendEmail.sendEmail(recipientEmail, subject, body);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                    return book;
+                }
+
         }
         return null;
     }

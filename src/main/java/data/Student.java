@@ -167,7 +167,6 @@ public class Student {
                 confirmationLabel.setStyle("-fx-text-fill: red;");
                 return;
             }
-
             Book book = admin.getBookById(id);
             if (book != null) {
                 if (book.getStock() > 0) {
